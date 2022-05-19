@@ -7,12 +7,6 @@ import datetime
 import pytz 
 
 
-import sys
-print(sys.getrecursionlimit())
-sys.setrecursionlimit(50000)
-
-#os.chdir('//file.laits.utexas.edu/imhr/Daily Activity Lab/DATA/PILOT_VIDEO/Scripts')
-
 data_folder = "../PC2/"
 ###copy paste from PC2.csv file, first row and last row, year, month, day, hour (24-format), minute
 local_timezone = 'America/Chicago'
@@ -22,12 +16,6 @@ days_start_end = {
     '20220304': [pytz.timezone(local_timezone).localize(datetime.datetime(2022, 3, 4, 7, 5)), pytz.timezone(local_timezone).localize(datetime.datetime(2022, 3, 4, 20, 21))]
 
 }
-
-#days_start_end = {
-#    '20220422': [pytz.timezone(local_timezone).localize(datetime.datetime(2022, 4, 22, 16, 0)), pytz.timezone(local_timezone).localize(datetime.datetime(2022, 4, 22, 16, 31))],
-#    '20220424': [pytz.timezone(local_timezone).localize(datetime.datetime(2022, 4, 24, 6, 42)), pytz.timezone(local_timezone).localize(datetime.datetime(2022, 4, 24, 19, 24))]
-#}
-
 
 
 v_folders = [item for item in os.listdir(data_folder) if item.startswith('V')]
@@ -57,7 +45,7 @@ for v_folder in v_folders:
                     video_files[day].append(root + '/' + item)
 
 
-    for day in ['20220304']:
+    for day in days:
 
         print(day)
 
